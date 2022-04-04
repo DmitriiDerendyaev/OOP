@@ -1,0 +1,11 @@
+﻿'task_3.exe' (Win32): Loaded 'D:\mospolytech\2_term\object_oriented_programming\code\task_3\Debug\task_3.exe'. Symbols loaded.
+'task_3.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ntdll.dll'. 
+'task_3.exe' (Win32): Loaded 'C:\Windows\SysWOW64\kernel32.dll'. 
+'task_3.exe' (Win32): Loaded 'C:\Windows\SysWOW64\KernelBase.dll'. 
+'task_3.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msvcp140d.dll'. 
+'task_3.exe' (Win32): Loaded 'C:\Windows\SysWOW64\vcruntime140d.dll'. 
+'task_3.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ucrtbased.dll'. 
+The thread 0x187c has exited with code 0 (0x0).
+The thread 0x3908 has exited with code 0 (0x0).
+The thread 0x3a94 has exited with code 0 (0x0).
+The program '[9244] task_3.exe' has exited with code 0 (0x0).

@@ -1,0 +1,10 @@
+﻿  task_3.cpp
+D:\mospolytech\2_term\object_oriented_programming\code\task_3\task_3.cpp(60,22): warning C4838: conversion from 'double' to 'int' requires a narrowing conversion
+D:\mospolytech\2_term\object_oriented_programming\code\task_3\task_3.cpp(60,22): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\mospolytech\2_term\object_oriented_programming\code\task_3\task_3.cpp(60,33): warning C4838: conversion from 'double' to 'int' requires a narrowing conversion
+D:\mospolytech\2_term\object_oriented_programming\code\task_3\task_3.cpp(60,33): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\mospolytech\2_term\object_oriented_programming\code\task_3\task_3.cpp(60,44): warning C4838: conversion from 'double' to 'int' requires a narrowing conversion
+D:\mospolytech\2_term\object_oriented_programming\code\task_3\task_3.cpp(60,44): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\mospolytech\2_term\object_oriented_programming\code\task_3\task_3.cpp(550,52): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+D:\mospolytech\2_term\object_oriented_programming\code\task_3\task_3.cpp(551,53): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  task_3.vcxproj -> D:\mospolytech\2_term\object_oriented_programming\code\task_3\Debug\task_3.exe
