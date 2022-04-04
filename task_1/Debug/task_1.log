@@ -1,0 +1,5 @@
+﻿  task_1.cpp
+D:\mospolytech\2_term\object_oriented_programming\task_1\task_1.cpp(152,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\mospolytech\2_term\object_oriented_programming\task_1\task_1.cpp(175,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\mospolytech\2_term\object_oriented_programming\task_1\task_1.cpp(187,7): warning C4101: 'flag_start': unreferenced local variable
+  task_1.vcxproj -> D:\mospolytech\2_term\object_oriented_programming\task_1\Debug\task_1.exe
