@@ -1,0 +1,7 @@
+﻿  task_6.cpp
+D:\mospolytech\2_term\object_oriented_programming\code\task_6\class_file.h(71,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\mospolytech\2_term\object_oriented_programming\code\task_6\class_file.h(74,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\mospolytech\2_term\object_oriented_programming\code\task_6\function_file.h(182,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\mospolytech\2_term\object_oriented_programming\code\task_6\task_6.cpp(8,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+D:\mospolytech\2_term\object_oriented_programming\code\task_6\class_file.h(356): warning C4715: 'Queue::get_queue': not all control paths return a value
+  task_6.vcxproj -> D:\mospolytech\2_term\object_oriented_programming\code\task_6\Debug\task_6.exe

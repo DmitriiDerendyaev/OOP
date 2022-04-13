@@ -1,8 +1,8 @@
 #include <iostream>
-#include "function_task_6.h"
+#include "function_file.h"
+#include <cstring>
 
 using namespace std;
-
 
 void main()
 {
@@ -63,7 +63,8 @@ void main()
 		case 10:
 		{
 			task10();
-			break; }
+			break; 
+		}
 		case 11:
 		{
 			task11();
