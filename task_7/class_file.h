@@ -1,6 +1,8 @@
+//#include "stdafx.h"
 #include <iostream>
-#include <cstring>
-#include <process.h>
+#include <string.h>   // для функций strcpy, strcat
+#include <stdlib.h>   // для функции exit
+#define _CRT_SECURE_NO_WARNINGS
 
 using namespace std;
 
@@ -60,12 +62,16 @@ private:
 public:
 	String() // конструктор без аргументов
 	{
-		strcpy(str, "");
+		strcpy_s(str, "");
 	}
-	String(char s[]) // конструктор с 1 аргументом
+	String(char s[])
 	{
-		strcpy(str, s);
+		strcpy_s(str, s);
 	}
+	//String(char s[]) // конструктор с 1 аргументом
+	//{
+	//	strcpy(str, s);
+	//}
 	void display() // вывод строки
 	{
 		cout << str;
@@ -81,3 +87,289 @@ public:
 		return String(str); // вернуть временный String
 	}
 };
+
+class times
+{
+private:
+	int hrs, mins, secs;
+public:
+
+	times() : hrs(0), mins(0), secs(0) // конструктор без аргум.
+	{ } // конструктор с тремя аргументами
+	times(int h, int m, int s) :hrs(h), mins(m), secs(s)
+	{ }
+	void display() // формат 11:59:59
+	{
+		cout << hrs << ":" << mins << ":" << secs << endl;
+	}
+	times operator+(times t2) // сложить два времени
+	{
+		int s = secs + t2.secs; // сложить секунды
+		int m = mins + t2.mins; // сложить минуты
+		int h = hrs + t2.hrs; // сложить часы
+		if (s > 59) // если слишком много секунд,
+		{
+			s -= 60; m++;
+		} // перенести их в одну минуту
+		if (m > 59) // если слишком много минут,
+		{
+			m -= 60; h++;
+		} // перенести их в один час
+		return times(h, m, s); // вернуть временное значение
+	}
+	times operator-(times t2)
+	{
+		long int total_sec = (hrs * 3600 + mins * 60 + secs) - (t2.hrs * 3600 + t2.mins * 60 + t2.secs);
+		int new_hrs = total_sec / 3600;
+		int new_mins = total_sec % 3600 / 60;
+		int new_secs = total_sec % 3600 % 60;
+
+		return (times(new_hrs, new_mins, new_secs));
+	}
+
+	times operator*(times t2)
+	{
+		long int total_sec = (hrs * 3600 + mins * 60 + secs) * (t2.hrs * 3600 + t2.mins * 60 + t2.secs);
+		int new_hrs = total_sec / 3600;
+		int new_mins = total_sec % 3600 / 60;
+		int new_secs = total_sec % 3600 % 60;
+
+		return (times(new_hrs, new_mins, new_secs));
+	}
+
+	times operator++()
+	{
+		return (times(++hrs, ++mins, ++secs));
+	}
+	times operator--()
+	{
+		return (times(--hrs, --mins, --secs));
+	}
+	times operator++(int)
+	{
+		return (times(hrs++, mins++, secs++));
+	}
+	times operator--(int)
+	{
+		return (times(hrs--, mins--, secs--));
+	}
+};
+
+class Int
+{
+private:
+	int i;
+public:
+	Int() : i(0) // конструктор без аргументов
+	{ }
+	Int(int ii) :i(ii) // конструктор с одним аргументом
+	{ } // (из int в Int)
+	void putInt() // вывод Int
+	{
+		cout << i;
+	}
+	void getInt() // чтение Int с клавиатуры
+	{
+		cin >> i;
+	}
+	operator int() // операция преобразования
+	{
+		return i;
+	} // (Int в int)
+	Int operator+(Int i2) // сложение
+	{
+		return checkit(long double(i) + long double(i2));
+	}
+	Int operator-(Int i2) // вычитание
+	{
+		return checkit(long double(i) - long double(i2));
+	}
+
+	Int operator*(Int i2) // умножение
+	{
+		return checkit(long double(i) * long double(i2));
+	}
+	Int operator/(Int i2) // деление
+	{
+		return checkit(long double(i) / long double(i2));
+	}
+	Int checkit(long double answer) // проверка
+	// результатов
+	{
+		if (answer > 2147483647.0L || answer < -2147483647.0L)
+		{
+			cout << "\nОшибка переполнения\n "; exit(1);
+		}
+		return Int(int(answer));
+	}
+};
+
+class fraction
+{
+private:
+	int numenator;
+	int denominator;
+public:
+	fraction() :numenator(0), denominator(0)
+	{ }
+	fraction(int n, int d) : numenator(n), denominator(d)
+	{ }
+	void set_fraction()
+	{
+		char slash;
+		cout << "Enter a fraction(X/Y): ";
+		cin >> numenator >> slash >> denominator;
+		/*if (isError(numenator, denominator) == true)
+		{
+			cout << "Error" << endl;
+			exit(1);
+		}*/
+	}
+	void display_fraction()
+	{
+		lowterms_void();
+		cout << "Fraction is: " << numenator << '/' << denominator << endl << endl;
+	}
+	fraction operator+(fraction);
+	fraction operator-(fraction);
+	fraction operator*(fraction);
+	fraction operator/(fraction);
+	bool operator==(fraction);
+	bool operator!=(fraction);
+	fraction lowterms(fraction);
+	void lowterms_void();
+	//bool isError(int, int);//Error == true; notError == false;
+};
+
+//bool fraction::isError(int numenator, int denominator)
+//{
+//	if ((numenator == 0 && denominator == 0) || (numenator == 1 && denominator == 1) || (numenator == 1 && denominator == 0) || (numenator == 0 && denominator == 1))
+//	{
+//		return true;
+//	}
+//	else
+//	{
+//		return false;
+//	}
+//}
+
+bool fraction::operator==(fraction current)//создать константные дроби для выхода из цикла
+{
+	if (numenator == current.numenator && denominator == current.denominator)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+bool fraction::operator!=(fraction current)//создать константные дроби для выхода из цикла
+{
+	if (numenator != current.numenator && denominator != current.denominator)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+
+fraction fraction::operator+(fraction current)
+{
+	int new_numenator = numenator * current.denominator + denominator * current.numenator;
+	int new_denominator = denominator * current.denominator;
+	return fraction(new_numenator, new_denominator);
+}
+
+fraction fraction::operator-(fraction current)
+{
+	int new_numenator = numenator * current.denominator - denominator * current.numenator;
+	int new_denominator = denominator * current.denominator;
+	return fraction(new_numenator, new_denominator);
+}
+
+fraction fraction::operator*(fraction current)
+{
+	int new_numenator = numenator * current.numenator;
+	int new_denominator = denominator * current.denominator;
+	return fraction(new_numenator, new_denominator);
+}
+
+fraction fraction::operator/(fraction current)
+{
+	int new_numenator = numenator * current.denominator;
+	int new_denominator = denominator * current.numenator;
+	return fraction(new_numenator, new_denominator);
+}
+
+fraction fraction::lowterms(fraction current)
+{
+	fraction temp_fraction;
+	long tnum, tden, temp, gcd;
+	tnum = labs(current.numenator); 
+	tden = labs(current.denominator);
+	if (tden == 0)
+	{ 
+		cout << "Denomenator is zero";
+		exit(1);
+	}
+	else if (tnum == 0)
+	{
+		current.numenator = 0;
+		current.denominator = 1;
+		//return ;
+	}
+	while (tnum != 0)
+	{
+		if (tnum < tden)
+		{ 
+			temp = tnum;
+			tnum = tden;
+			tden = temp;
+		}
+		tnum = tnum - tden;
+	}
+	gcd = tden;
+	current.numenator = current.numenator / gcd;
+	current.denominator = current.denominator / gcd;
+
+	temp_fraction.numenator = current.numenator;
+	temp_fraction.denominator = current.denominator;
+
+	return temp_fraction;
+}
+
+void fraction::lowterms_void()
+{
+	long tnum, tden, temp, gcd;
+	tnum = labs(numenator);
+	tden = labs(denominator);
+	if (tden == 0)
+	{
+		cout << "Denomenator is zero";
+		exit(1);
+	}
+	else if (tnum == 0)
+	{
+		numenator = 0;
+		denominator = 1;
+		return;
+	}
+	while (tnum != 0)
+	{
+		if (tnum < tden)
+		{
+			temp = tnum;
+			tnum = tden;
+			tden = temp;
+		}
+		tnum = tnum - tden;
+	}
+	gcd = tden;
+	numenator = numenator / gcd;
+	denominator = denominator / gcd;
+}
