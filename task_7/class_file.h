@@ -376,6 +376,31 @@ void fraction::lowterms_void()
 	denominator = denominator / gcd;
 }
 
+class sterling
+{
+private:
+	long funt;
+	int shilling;
+	int pence;
+	float dec_funtic;
+public:
+	sterling();
+	sterling(double dec_funt);
+	sterling(long funt, int shilling, int pence);
+	sterling(bMoney exchange);
+	void setSterling();
+	void getSterling();
+	long get_funt();
+	int get_shilling();
+	int get_pence();
+	operator double();
+	sterling operator+(sterling);
+	sterling operator-(sterling);
+	sterling operator*(double);
+	sterling operator/(sterling);
+	sterling operator/(double);
+};
+
 class bMoney
 {
 private:
@@ -387,6 +412,13 @@ private:
 	string clearDollar;
 	long double first_value;
 public:
+	bMoney(sterling exchange)
+	{
+		long po = exchange.get_funt();
+		int s = exchange.get_shilling();
+		int pe = exchange.get_pence();
+		total = (po * 50) + ((50 / 20) * s) + ((50 * 20 * 12) * pe);
+	}
 	explicit bMoney() = default;
 	long double mstold_get()
 	{
@@ -409,10 +441,14 @@ public:
 
 		return total;
 	}
-	operator double() const//for task_12
+	//operator double() const//for task_12
+	//{
+	//	//double double_dollar = total;
+	//	return (double)total;
+	//}
+	double get_double_dollar()
 	{
-		//double double_dollar = total;
-		return (double)total;
+		return total;
 	}
 	bMoney operator+(bMoney);
 	bMoney operator-(bMoney);
@@ -685,63 +721,71 @@ float decart_coord::get_y() {
 	return y;
 }
 
-class sterling
-{
-private:
-	long funt;
-	int shilling;
-	int pence;
-	float dec_funtic;
-public:
-	sterling(): funt(0), shilling(0), pence(0)
-	{ }
-	sterling(double dec_funt)
-	{
-		funt = (int)dec_funt;
-		shilling = (dec_funt - funt) * 20;
-		pence = (dec_funt - funt) * 20 * 12;
-	}
-	sterling(long funt, int shilling, int pence): funt(funt), shilling(shilling), pence(pence)
-	{ }
-	sterling(bMoney exchange)
-	{
-		dec_funtic = sterling(double(exchange) / 50);
-	}
-	void setSterling()
-	{
-		char letter;
-		cout << "Enter a sum of sterling($9.19.11): $";
-		cin >> funt >> letter >> shilling >> letter >> pence;
-	}
-	void getSterling()
-	{
-		char letter = '.';
-		cout << "$$" << funt << letter << shilling << letter << pence << endl << endl;
-	}
-	operator double()
-	{
-		double total_pence = funt * 20 * 12 + shilling * 20 + pence;
-		return total_pence;
-	}
-	sterling operator+(sterling current)
-	{
-		return sterling(double(sterling(funt, shilling, pence)) + double(current));
-	}
-	sterling operator-(sterling current)
-	{
-		return sterling(double(sterling(funt, shilling, pence)) - double(current));
-	}
-	sterling operator*(double current)
-	{
-		return sterling(double(sterling(funt, shilling, pence)) * current);
-	}
-	sterling operator/(sterling current)
-	{
-		return sterling(double(sterling(funt, shilling, pence)) / double(current));
-	}
-	sterling operator/(double current)
-	{
-		return sterling(double(sterling(funt, shilling, pence)) / current);
-	}
 
-};
+sterling::sterling(): funt(0), shilling(0), pence(0)
+{ }
+sterling::sterling(double dec_funt)
+{
+	funt = (int)dec_funt;
+	shilling = (dec_funt - funt) * 20;
+	pence = (dec_funt - funt) * 20 * 12;
+}
+sterling::sterling(long funt, int shilling, int pence): funt(funt), shilling(shilling), pence(pence)
+{ }
+sterling::sterling(bMoney exchange)
+{
+	double dollar = exchange.get_double_dollar();
+	int sumpens = (dollar / 50) * 20 * 12;
+	funt = sumpens / (20 * 12);
+	shilling = sumpens % (20 * 12) / 12;
+	pence = sumpens % (20 * 12) % 12;
+}
+void sterling::setSterling()
+{
+	char letter;
+	cout << "Enter a sum of sterling($9.19.11): $";
+	cin >> funt >> letter >> shilling >> letter >> pence;
+}
+void sterling::getSterling()
+{
+	char letter = '.';
+	cout << "$$" << funt << letter << shilling << letter << pence << endl << endl;
+}
+long sterling::get_funt()
+{
+	return funt;
+}
+int sterling::get_shilling()
+{
+	return shilling;
+}
+int sterling::get_pence()
+{
+	return pence;
+}
+sterling::operator double()
+{
+	double total_pence = funt * 20 * 12 + shilling * 20 + pence;
+	return total_pence;
+}
+sterling sterling::operator+(sterling current)
+{
+	return sterling(double(sterling(funt, shilling, pence)) + double(current));
+}
+sterling sterling::operator-(sterling current)
+{
+	return sterling(double(sterling(funt, shilling, pence)) - double(current));
+}
+sterling sterling::operator*(double current)
+{
+	return sterling(double(sterling(funt, shilling, pence)) * current);
+}
+sterling sterling::operator/(sterling current)
+{
+	return sterling(double(sterling(funt, shilling, pence)) / double(current));
+}
+sterling sterling::operator/(double current)
+{
+	return sterling(double(sterling(funt, shilling, pence)) / current);
+}
+

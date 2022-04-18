@@ -297,4 +297,11 @@ void task12()
 	sterling_exchange = bukcs_exchange;
 
 	sterling_exchange.getSterling();
+
+	cout << "Enter the decimal shilling: ";
+	sterling_exchange.getSterling();
+
+	bukcs_exchange = sterling_exchange;
+
+	bukcs_exchange.convertDollar_display();
 }
