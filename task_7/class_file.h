@@ -409,9 +409,10 @@ public:
 
 		return total;
 	}
-	operator double()
+	operator double() const//for task_12
 	{
-		double double_dollar = total;
+		//double double_dollar = total;
+		return (double)total;
 	}
 	bMoney operator+(bMoney);
 	bMoney operator-(bMoney);
@@ -690,6 +691,7 @@ private:
 	long funt;
 	int shilling;
 	int pence;
+	float dec_funtic;
 public:
 	sterling(): funt(0), shilling(0), pence(0)
 	{ }
@@ -703,8 +705,7 @@ public:
 	{ }
 	sterling(bMoney exchange)
 	{
-		sterling exchanged_value = sterling(double(exchange) / 50);
-		return exchanged_value;
+		dec_funtic = sterling(double(exchange) / 50);
 	}
 	void setSterling()
 	{
@@ -715,7 +716,7 @@ public:
 	void getSterling()
 	{
 		char letter = '.';
-		cout << "$" << funt << letter << shilling << letter << pence << endl << endl;
+		cout << "$$" << funt << letter << shilling << letter << pence << endl << endl;
 	}
 	operator double()
 	{

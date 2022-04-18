@@ -295,4 +295,6 @@ void task12()
 	bukcs_exchange.mstold_get();
 
 	sterling_exchange = bukcs_exchange;
+
+	sterling_exchange.getSterling();
 }
