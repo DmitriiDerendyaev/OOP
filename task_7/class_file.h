@@ -376,6 +376,8 @@ void fraction::lowterms_void()
 	denominator = denominator / gcd;
 }
 
+class bMoney;
+
 class sterling
 {
 private:
