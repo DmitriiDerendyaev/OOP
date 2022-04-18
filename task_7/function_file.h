@@ -233,7 +233,20 @@ void task9()
 
 void task10()
 {
-	
+	Polar first_pol, second_pol, total_pol;
+	decart_coord first_dec, second_dec, total_dec;
+
+	first_pol.set_polar();
+	second_pol.set_polar();
+
+	first_dec = first_pol;
+	second_dec = second_pol;
+
+	total_dec = first_dec + second_dec;
+
+	total_pol = total_dec;
+
+	total_pol.display_polar();
 }
 
 void task11()
