@@ -520,6 +520,103 @@ public:
 	}
 };
 
+//class Polar
+//{
+//private:
+//	float rad;
+//	float angle;
+//public:
+//	Polar() : rad(0), angle(0)
+//	{ }
+//	Polar(float r, float a): rad(r), angle(a)
+//	{ }
+//	Polar(decart_coord decart);
+//	void set_polar()
+//	{
+//		cout << "Enter a polar coordinates(rad angle): ";
+//		cout << "Rad: "; cin >> rad;
+//		cout << "Angle: "; cin >> angle;
+//	}
+//	void display_polar()
+//	{
+//		cout << "Rad: " << rad << endl;
+//		cout << "Angle: " << angle << endl;
+//	}
+//	float get_rad()
+//	{
+//		return rad;
+//	}
+//	float get_angle()
+//	{
+//		return angle;
+//	}
+//
+//};
+//
+//class decart_coord
+//{
+//private:
+//	float x;
+//	float y;
+//public:
+//	decart_coord() : x(0), y(0)
+//	{ }
+//	decart_coord(float x, float y) : x(x), y(y)
+//	{ }
+//	decart_coord(Polar pol);
+//
+//	decart_coord operator+(decart_coord);
+//
+//	float get_x()
+//	{
+//		return x;
+//	}
+//	float get_y()
+//	{
+//		return y;
+//	}
+//};
+//
+//decart_coord decart_coord::operator+(decart_coord current)
+//{
+//	float temp_x = x + current.x;
+//	float temp_y = y + current.y;
+//
+//	return decart_coord(temp_x, temp_y);
+//}
+//
+//Polar::Polar(decart_coord decart)
+//{
+//	float x = decart.get_x();
+//	float y = decart.get_y();
+//	angle = tan(y / x);
+//	rad = hypot(x, y);
+//}
+//
+//decart_coord::decart_coord(Polar pol)
+//{
+//	float angle = pol.get_angle();
+//	float rad = pol.get_rad();
+//	x = rad * cos(angle);
+//	y = rad * sin(angle);
+//}
+
+class Polar;
+
+class decart_coord {
+private:
+	float x;
+	float y;
+
+public:
+	decart_coord();
+	decart_coord(float x, float y);
+	decart_coord(Polar pol);
+	decart_coord operator+(decart_coord current);
+	float get_x();
+	float get_y();
+};
+
 class Polar
 {
 private:
@@ -528,9 +625,15 @@ private:
 public:
 	Polar() : rad(0), angle(0)
 	{ }
-	Polar(float r, float a): rad(r), angle(a)
+	Polar(float r, float a) : rad(r), angle(a)
 	{ }
-	Polar(decart_coord decart);
+	Polar(decart_coord decart) {
+		float x = decart.get_x();
+		float y = decart.get_y();
+		angle = tan(y / x);
+		rad = hypot(x, y);
+	}
+
 	void set_polar()
 	{
 		cout << "Enter a polar coordinates(rad angle): ";
@@ -553,58 +656,25 @@ public:
 
 };
 
-class decart_coord
-{
-private:
-	float x;
-	float y;
-public:
-	decart_coord() : x(0), y(0)
-	{ }
-	decart_coord(float x, float y) : x(x), y(y)
-	{ }
-	decart_coord(Polar pol);
-
-	decart_coord operator+(decart_coord);
-
-	float get_x()
-	{
-		return x;
-	}
-	float get_y()
-	{
-		return y;
-	}
-};
-
-decart_coord decart_coord::operator+(decart_coord current)
-{
-	float temp_x = x + current.x;
-	float temp_y = y + current.y;
-
-	return decart_coord(temp_x, temp_y);
-}
-
-Polar::Polar(decart_coord decart)
-{
-	float x = decart.get_x();
-	float y = decart.get_y();
-	angle = tan(y / x);
-	rad = hypot(x, y);
-}
-
-decart_coord::decart_coord(Polar pol)
-{
+decart_coord::decart_coord() : x(0), y(0) { }
+decart_coord::decart_coord(float x, float y) : x(x), y(y) { }
+decart_coord::decart_coord(Polar pol) {
 	float angle = pol.get_angle();
 	float rad = pol.get_rad();
 	x = rad * cos(angle);
 	y = rad * sin(angle);
 }
-//
-//Cartesian::Cartesian(const Polar& pol)
-//{
-//	double cor = pol.get_corner();
-//	double rad = pol.get_radius();
-//	X = rad * cos(cor);
-//	Y = rad * sin(cor);
-//}
+
+decart_coord decart_coord::operator+(decart_coord current) {
+	float temp_x = x + current.x;
+	float temp_y = y + current.y;
+	return decart_coord(temp_x, temp_y);
+}
+
+float decart_coord::get_x() {
+	return x;
+}
+
+float decart_coord::get_y() {
+	return y;
+}
