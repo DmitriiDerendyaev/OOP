@@ -409,7 +409,10 @@ public:
 
 		return total;
 	}
-
+	operator double()
+	{
+		double double_dollar = total;
+	}
 	bMoney operator+(bMoney);
 	bMoney operator-(bMoney);
 	bMoney operator*(long double);//цена за единицу времени, затраченного на изделие
@@ -698,6 +701,11 @@ public:
 	}
 	sterling(long funt, int shilling, int pence): funt(funt), shilling(shilling), pence(pence)
 	{ }
+	sterling(bMoney exchange)
+	{
+		sterling exchanged_value = sterling(double(exchange) / 50);
+		return exchanged_value;
+	}
 	void setSterling()
 	{
 		char letter;

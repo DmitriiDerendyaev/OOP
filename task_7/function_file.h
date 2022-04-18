@@ -288,11 +288,11 @@ void task11()
 
 void task12()
 {
-	
+	bMoney bukcs_exchange;
+	sterling sterling_exchange;
+
+	cout << "Enter bucks sum(till $): ";
+	bukcs_exchange.mstold_get();
+
+	sterling_exchange = bukcs_exchange;
 }
-
-class function_file
-{
-};
-
-
