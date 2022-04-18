@@ -1,7 +1,8 @@
-//#include "stdafx.h"
+п»ї//#include "stdafx.h"
 #include <iostream>
-#include <string.h>   // для функций strcpy, strcat
-#include <stdlib.h>   // для функции exit
+#include <string.h>   // РґР»СЏ С„СѓРЅРєС†РёР№ strcpy, strcat
+#include <stdlib.h>   // РґР»СЏ С„СѓРЅРєС†РёРё exit
+#include <string>
 #define _CRT_SECURE_NO_WARNINGS
 
 using namespace std;
@@ -30,37 +31,37 @@ class Distance //English Distance class
 			//add 2 distances
 };
 
-Distance Distance::operator+(Distance d2)// вернуть сумму
+Distance Distance::operator+(Distance d2)// РІРµСЂРЅСѓС‚СЊ СЃСѓРјРјСѓ
 {
-	int f = feet + d2.feet; // сложить футы
-	float i = inches + d2.inches; // сложить дюймы
-	if (i >= 12.0) // если сумма дюймов превышает 12.0,
-	{ // уменьшить число дюймов
-		i -= 12.0; // на 12.0 и 
-		f++; // увеличить число футов н 1
-	} // вернуть временное 
-	return Distance(f, i);// значение расстояния, равное сумме
+	int f = feet + d2.feet; // СЃР»РѕР¶РёС‚СЊ С„СѓС‚С‹
+	float i = inches + d2.inches; // СЃР»РѕР¶РёС‚СЊ РґСЋР№РјС‹
+	if (i >= 12.0) // РµСЃР»Рё СЃСѓРјРјР° РґСЋР№РјРѕРІ РїСЂРµРІС‹С€Р°РµС‚ 12.0,
+	{ // СѓРјРµРЅСЊС€РёС‚СЊ С‡РёСЃР»Рѕ РґСЋР№РјРѕРІ
+		i -= 12.0; // РЅР° 12.0 Рё 
+		f++; // СѓРІРµР»РёС‡РёС‚СЊ С‡РёСЃР»Рѕ С„СѓС‚РѕРІ РЅ 1
+	} // РІРµСЂРЅСѓС‚СЊ РІСЂРµРјРµРЅРЅРѕРµ 
+	return Distance(f, i);// Р·РЅР°С‡РµРЅРёРµ СЂР°СЃСЃС‚РѕСЏРЅРёСЏ, СЂР°РІРЅРѕРµ СЃСѓРјРјРµ
 }
 
-Distance Distance::operator-(Distance d2) // вернуть разность
+Distance Distance::operator-(Distance d2) // РІРµСЂРЅСѓС‚СЊ СЂР°Р·РЅРѕСЃС‚СЊ
 {
-	int f = feet - d2.feet; // разность футов
-	float i = inches - d2.inches; // разность дюймов
-	if (i < 0) // если число дюймов меньше 0,
-	{ // увеличить их количество на 
-		i += 12.0; // 12.0 и 
-		f--; // уменьшить число футов на 1
-	} // вернуть временное расстояние,
-	return Distance(f, i); // равное разности
+	int f = feet - d2.feet; // СЂР°Р·РЅРѕСЃС‚СЊ С„СѓС‚РѕРІ
+	float i = inches - d2.inches; // СЂР°Р·РЅРѕСЃС‚СЊ РґСЋР№РјРѕРІ
+	if (i < 0) // РµСЃР»Рё С‡РёСЃР»Рѕ РґСЋР№РјРѕРІ РјРµРЅСЊС€Рµ 0,
+	{ // СѓРІРµР»РёС‡РёС‚СЊ РёС… РєРѕР»РёС‡РµСЃС‚РІРѕ РЅР° 
+		i += 12.0; // 12.0 Рё 
+		f--; // СѓРјРµРЅСЊС€РёС‚СЊ С‡РёСЃР»Рѕ С„СѓС‚РѕРІ РЅР° 1
+	} // РІРµСЂРЅСѓС‚СЊ РІСЂРµРјРµРЅРЅРѕРµ СЂР°СЃСЃС‚РѕСЏРЅРёРµ,
+	return Distance(f, i); // СЂР°РІРЅРѕРµ СЂР°Р·РЅРѕСЃС‚Рё
 }
 
-class String // пользовательский строковый тип
+class String // РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёР№ СЃС‚СЂРѕРєРѕРІС‹Р№ С‚РёРї
 {
 private:
-	enum { SZ = 100 }; // размер объектов String
-	char str[SZ]; // содержит С-строку
+	enum { SZ = 100 }; // СЂР°Р·РјРµСЂ РѕР±СЉРµРєС‚РѕРІ String
+	char str[SZ]; // СЃРѕРґРµСЂР¶РёС‚ РЎ-СЃС‚СЂРѕРєСѓ
 public:
-	String() // конструктор без аргументов
+	String() // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· Р°СЂРіСѓРјРµРЅС‚РѕРІ
 	{
 		strcpy_s(str, "");
 	}
@@ -68,23 +69,23 @@ public:
 	{
 		strcpy_s(str, s);
 	}
-	//String(char s[]) // конструктор с 1 аргументом
+	//String(char s[]) // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ 1 Р°СЂРіСѓРјРµРЅС‚РѕРј
 	//{
 	//	strcpy(str, s);
 	//}
-	void display() // вывод строки
+	void display() // РІС‹РІРѕРґ СЃС‚СЂРѕРєРё
 	{
 		cout << str;
 	}
-	String operator+=(String ss)// прибавление строки к
-	// имеющейся
-	{// результат сохраняется в имеющейся строке
+	String operator+=(String ss)// РїСЂРёР±Р°РІР»РµРЅРёРµ СЃС‚СЂРѕРєРё Рє
+	// РёРјРµСЋС‰РµР№СЃСЏ
+	{// СЂРµР·СѓР»СЊС‚Р°С‚ СЃРѕС…СЂР°РЅСЏРµС‚СЃСЏ РІ РёРјРµСЋС‰РµР№СЃСЏ СЃС‚СЂРѕРєРµ
 		if (strlen(str) + strlen(ss.str) >= SZ)
 		{
-			cout << "\nПереполнение строки"; exit(1);
+			cout << "\nРџРµСЂРµРїРѕР»РЅРµРЅРёРµ СЃС‚СЂРѕРєРё"; exit(1);
 		}
-		strcat(str, ss.str);// добавить аргументную строку
-		return String(str); // вернуть временный String
+		strcat(str, ss.str);// РґРѕР±Р°РІРёС‚СЊ Р°СЂРіСѓРјРµРЅС‚РЅСѓСЋ СЃС‚СЂРѕРєСѓ
+		return String(str); // РІРµСЂРЅСѓС‚СЊ РІСЂРµРјРµРЅРЅС‹Р№ String
 	}
 };
 
@@ -94,28 +95,28 @@ private:
 	int hrs, mins, secs;
 public:
 
-	times() : hrs(0), mins(0), secs(0) // конструктор без аргум.
-	{ } // конструктор с тремя аргументами
+	times() : hrs(0), mins(0), secs(0) // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· Р°СЂРіСѓРј.
+	{ } // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ С‚СЂРµРјСЏ Р°СЂРіСѓРјРµРЅС‚Р°РјРё
 	times(int h, int m, int s) :hrs(h), mins(m), secs(s)
 	{ }
-	void display() // формат 11:59:59
+	void display() // С„РѕСЂРјР°С‚ 11:59:59
 	{
 		cout << hrs << ":" << mins << ":" << secs << endl;
 	}
-	times operator+(times t2) // сложить два времени
+	times operator+(times t2) // СЃР»РѕР¶РёС‚СЊ РґРІР° РІСЂРµРјРµРЅРё
 	{
-		int s = secs + t2.secs; // сложить секунды
-		int m = mins + t2.mins; // сложить минуты
-		int h = hrs + t2.hrs; // сложить часы
-		if (s > 59) // если слишком много секунд,
+		int s = secs + t2.secs; // СЃР»РѕР¶РёС‚СЊ СЃРµРєСѓРЅРґС‹
+		int m = mins + t2.mins; // СЃР»РѕР¶РёС‚СЊ РјРёРЅСѓС‚С‹
+		int h = hrs + t2.hrs; // СЃР»РѕР¶РёС‚СЊ С‡Р°СЃС‹
+		if (s > 59) // РµСЃР»Рё СЃР»РёС€РєРѕРј РјРЅРѕРіРѕ СЃРµРєСѓРЅРґ,
 		{
 			s -= 60; m++;
-		} // перенести их в одну минуту
-		if (m > 59) // если слишком много минут,
+		} // РїРµСЂРµРЅРµСЃС‚Рё РёС… РІ РѕРґРЅСѓ РјРёРЅСѓС‚Сѓ
+		if (m > 59) // РµСЃР»Рё СЃР»РёС€РєРѕРј РјРЅРѕРіРѕ РјРёРЅСѓС‚,
 		{
 			m -= 60; h++;
-		} // перенести их в один час
-		return times(h, m, s); // вернуть временное значение
+		} // РїРµСЂРµРЅРµСЃС‚Рё РёС… РІ РѕРґРёРЅ С‡Р°СЃ
+		return times(h, m, s); // РІРµСЂРЅСѓС‚СЊ РІСЂРµРјРµРЅРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ
 	}
 	times operator-(times t2)
 	{
@@ -160,45 +161,45 @@ class Int
 private:
 	int i;
 public:
-	Int() : i(0) // конструктор без аргументов
+	Int() : i(0) // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· Р°СЂРіСѓРјРµРЅС‚РѕРІ
 	{ }
-	Int(int ii) :i(ii) // конструктор с одним аргументом
-	{ } // (из int в Int)
-	void putInt() // вывод Int
+	Int(int ii) :i(ii) // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РѕРґРЅРёРј Р°СЂРіСѓРјРµРЅС‚РѕРј
+	{ } // (РёР· int РІ Int)
+	void putInt() // РІС‹РІРѕРґ Int
 	{
 		cout << i;
 	}
-	void getInt() // чтение Int с клавиатуры
+	void getInt() // С‡С‚РµРЅРёРµ Int СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
 	{
 		cin >> i;
 	}
-	operator int() // операция преобразования
+	operator int() // РѕРїРµСЂР°С†РёСЏ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ
 	{
 		return i;
-	} // (Int в int)
-	Int operator+(Int i2) // сложение
+	} // (Int РІ int)
+	Int operator+(Int i2) // СЃР»РѕР¶РµРЅРёРµ
 	{
 		return checkit(long double(i) + long double(i2));
 	}
-	Int operator-(Int i2) // вычитание
+	Int operator-(Int i2) // РІС‹С‡РёС‚Р°РЅРёРµ
 	{
 		return checkit(long double(i) - long double(i2));
 	}
 
-	Int operator*(Int i2) // умножение
+	Int operator*(Int i2) // СѓРјРЅРѕР¶РµРЅРёРµ
 	{
 		return checkit(long double(i) * long double(i2));
 	}
-	Int operator/(Int i2) // деление
+	Int operator/(Int i2) // РґРµР»РµРЅРёРµ
 	{
 		return checkit(long double(i) / long double(i2));
 	}
-	Int checkit(long double answer) // проверка
-	// результатов
+	Int checkit(long double answer) // РїСЂРѕРІРµСЂРєР°
+	// СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ
 	{
 		if (answer > 2147483647.0L || answer < -2147483647.0L)
 		{
-			cout << "\nОшибка переполнения\n "; exit(1);
+			cout << "\nРћС€РёР±РєР° РїРµСЂРµРїРѕР»РЅРµРЅРёСЏ\n "; exit(1);
 		}
 		return Int(int(answer));
 	}
@@ -253,7 +254,7 @@ public:
 //	}
 //}
 
-bool fraction::operator==(fraction current)//создать константные дроби для выхода из цикла
+bool fraction::operator==(fraction current)//СЃРѕР·РґР°С‚СЊ РєРѕРЅСЃС‚Р°РЅС‚РЅС‹Рµ РґСЂРѕР±Рё РґР»СЏ РІС‹С…РѕРґР° РёР· С†РёРєР»Р°
 {
 	if (numenator == current.numenator && denominator == current.denominator)
 	{
@@ -265,7 +266,7 @@ bool fraction::operator==(fraction current)//создать константные дроби для выход
 	}
 }
 
-bool fraction::operator!=(fraction current)//создать константные дроби для выхода из цикла
+bool fraction::operator!=(fraction current)//СЃРѕР·РґР°С‚СЊ РєРѕРЅСЃС‚Р°РЅС‚РЅС‹Рµ РґСЂРѕР±Рё РґР»СЏ РІС‹С…РѕРґР° РёР· С†РёРєР»Р°
 {
 	if (numenator != current.numenator && denominator != current.denominator)
 	{
@@ -373,3 +374,146 @@ void fraction::lowterms_void()
 	numenator = numenator / gcd;
 	denominator = denominator / gcd;
 }
+
+class bMoney
+{
+private:
+	string dollar;
+	long double total;
+
+	string strDollar;
+	string signDollar;
+	string clearDollar;
+	long double first_value;
+public:
+	explicit bMoney() = default;
+	long double mstold_get()
+	{
+		cout << "Enter a value of variable till sign $: ";
+		getline(cin, dollar, '$');
+
+		int value = dollar.length();
+		int n = 0;
+
+		string temp_number;
+
+		for (int i = 0; i < value; i++)
+		{
+			if (dollar[i] != ',' && dollar[i] != '$')
+			{
+				temp_number.push_back(dollar[i]);
+			}
+		}
+		total = stold(temp_number);
+
+		return total;
+	}
+
+	bMoney operator+(bMoney);
+	bMoney operator-(bMoney);
+	bMoney operator*(long double);//С†РµРЅР° Р·Р° РµРґРёРЅРёС†Сѓ РІСЂРµРјРµРЅРё, Р·Р°С‚СЂР°С‡РµРЅРЅРѕРіРѕ РЅР° РёР·РґРµР»РёРµ
+	long double operator/(bMoney);//РћР±С‰Р°СЏ С†РµРЅР°, РґРµР»РµРЅРЅР°СЏ РЅР° С†РµРЅСѓ Р·Р° РёР·РґРµР»РёРµ
+	bMoney operator/(long double);//РћР±С‰Р°СЏ С†РµРЅР°, РґРµР»РµРЅРЅР°СЏ РЅР° РєР»РёС‡РµСЃС‚РІРѕ РёР·РґРµР»РёР№
+
+	void convertDollar_display()
+	{
+		strDollar += to_string(total);
+
+		signDollar += '$';
+		signDollar += strDollar;
+
+		reverse(signDollar.begin(), signDollar.end());
+
+		clearDollar += signDollar.substr(signDollar.find(',') - 2);
+
+		if (clearDollar.size() > 5)
+			clearDollar.insert(6, " ");
+		else if (clearDollar.size() > 9)
+			clearDollar.insert(10, " ");
+		else if (clearDollar.size() > 13)
+			clearDollar.insert(14, " ");
+		else if (clearDollar.size() > 17)
+			clearDollar.insert(18, " ");
+		else if (clearDollar.size() > 21)
+			clearDollar.insert(22, " ");
+
+		reverse(clearDollar.begin(), clearDollar.end());
+
+		cout << clearDollar << endl;
+	}
+
+};
+
+bMoney bMoney::operator*(long double current)
+{
+	bMoney total_dollar;
+	total_dollar.total = total * current;
+
+	return total_dollar;
+}
+
+long double bMoney::operator/(bMoney current)
+{
+	long double total_dollar;
+	total_dollar = total / current.total;
+
+	return total_dollar;
+}
+
+bMoney bMoney::operator/(long double current)
+{
+	bMoney total_dollar;
+	total_dollar.total = total / current;
+
+	return total_dollar;
+}
+
+bMoney bMoney::operator+(bMoney current)
+{
+	bMoney total_dollar;
+	total_dollar.total = total + current.total;
+
+	return total_dollar;
+}
+
+bMoney bMoney::operator-(bMoney current)
+{
+	bMoney total_dollar;
+	total_dollar.total = total - current.total;
+
+	return total_dollar;
+}
+
+const int LIMIT = 100; //array size
+////////////////////////////////////////////////////////////////
+class safearay {
+private: 
+int arr[LIMIT]; 
+int head;
+int tail;
+
+public:
+	void set_range()
+	{
+		char spaces;
+		int range;
+		cout << "Р’РІРµРґРёС‚Рµ РІРµСЂС…РЅРёР№ Рё РЅРёР¶РЅРёР№ РїСЂРµРґРµР» РјР°СЃСЃСЃРёРІР°. Р’РµР»РёС‡РёРЅР° РјР°СЃСЃРёРІР° <= 100: ";
+		cin >> head >> spaces >> tail;
+		
+		range = abs(tail - head);
+		head = 0;
+		tail = range;
+	}
+	int get_tail()
+	{
+		return tail;
+	}
+	int& operator [](int n) //note: return by reference
+	{
+		if (n < head || n > tail)
+		{
+			cout << "\nIndex out of bounds"; exit(1);
+		}
+		return arr[n];
+	}
+};

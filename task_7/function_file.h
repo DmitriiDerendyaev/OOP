@@ -173,12 +173,62 @@ void task7()
 
 void task8()
 {
+	bMoney first_value, second_value, total_value;
+	long double time_cost, amount, result;
+	char user_answer = 'y';
+
+	while (user_answer == 'y')
+	{
+		first_value.mstold_get();
+		second_value.mstold_get();
+		cout << "Enter a time_cost:"; cin >> time_cost;
+		cout << "Enter a amount:"; cin >> amount;
+
+		cout << "Result of addition:" << endl;
+		total_value = first_value + second_value;
+		total_value.convertDollar_display();
+
+		cout << "Result of substraction:" << endl;
+		total_value = first_value - second_value;
+		total_value.convertDollar_display();
+
+		cout << "Result of multiplication. Cost of time:" << endl;
+		total_value = first_value * time_cost;
+		total_value.convertDollar_display();
+
+		cout << "Result of division. Cost of element by time:" << endl;
+		result = first_value / second_value;
+		cout << "$" << result << endl;
+
+		cout << "Result of division. Total cost by amount" << endl;
+		total_value = total_value / amount;
+		total_value.convertDollar_display();
+
+		cout << "Do you want to continue?(y/n): ";
+		cin >> user_answer;
+	}
 	
+	//трай ит ту файнд аут а мистакес
+
+	//second_value = first_value + amount; //- вронг
+
+
 }
 
 void task9()
 {
+	safearay sa1;
 
+	sa1.set_range();
+
+	for (int j = 0; j < sa1.get_tail(); j++) //insert elements
+		sa1[j] = j * 10; //*left* side of equal sign
+
+	for (int j = 0; j < sa1.get_tail(); j++) //display elements
+	{
+		int temp = sa1[j]; //*right* side of equal sign
+		cout << "Element " << j << " is " << temp << endl;
+	} 
 }
 
 void task10()
