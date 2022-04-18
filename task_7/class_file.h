@@ -414,12 +414,13 @@ private:
 	string clearDollar;
 	long double first_value;
 public:
-	bMoney(sterling exchange)
+	bMoney(sterling exchange)//кааааак?
 	{
-		long po = exchange.get_funt();
+		long fu = exchange.get_funt();
 		int s = exchange.get_shilling();
 		int pe = exchange.get_pence();
-		total = (po * 50) + ((50 / 20) * s) + ((50 * 20 * 12) * pe);
+		total = (fu + (s * 12 + pe) / 2.4 / 100) * 50;
+		//total = (po * 50) + ((50 / 20) * s) + ((50 / 20 / 12) * pe);
 	}
 	explicit bMoney() = default;
 	long double mstold_get()
@@ -745,7 +746,7 @@ sterling::sterling(bMoney exchange)
 void sterling::setSterling()
 {
 	char letter;
-	cout << "Enter a sum of sterling($9.19.11): $";
+	cout << "Enter a sum of sterling($9.19.11): $$";
 	cin >> funt >> letter >> shilling >> letter >> pence;
 }
 void sterling::getSterling()
