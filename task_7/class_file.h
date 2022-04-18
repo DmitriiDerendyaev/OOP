@@ -607,7 +607,6 @@ class decart_coord {
 private:
 	float x;
 	float y;
-
 public:
 	decart_coord();
 	decart_coord(float x, float y);
@@ -616,6 +615,8 @@ public:
 	float get_x();
 	float get_y();
 };
+
+#define PI 3.14159265
 
 class Polar
 {
@@ -630,7 +631,8 @@ public:
 	Polar(decart_coord decart) {
 		float x = decart.get_x();
 		float y = decart.get_y();
-		angle = tan(y / x);
+		//angle = atan(y / x) * 180 / PI;
+		angle = atan(y / x);
 		rad = hypot(x, y);
 	}
 
@@ -678,3 +680,59 @@ float decart_coord::get_x() {
 float decart_coord::get_y() {
 	return y;
 }
+
+class sterling
+{
+private:
+	long funt;
+	int shilling;
+	int pence;
+public:
+	sterling(): funt(0), shilling(0), pence(0)
+	{ }
+	sterling(double dec_funt)
+	{
+		funt = (int)dec_funt;
+		shilling = (dec_funt - funt) * 20;
+		pence = (dec_funt - funt) * 20 * 12;
+	}
+	sterling(long funt, int shilling, int pence): funt(funt), shilling(shilling), pence(pence)
+	{ }
+	void setSterling()
+	{
+		char letter;
+		cout << "Enter a sum of sterling($9.19.11): $";
+		cin >> funt >> letter >> shilling >> letter >> pence;
+	}
+	void getSterling()
+	{
+		char letter = '.';
+		cout << "$" << funt << letter << shilling << letter << pence << endl << endl;
+	}
+	operator double()
+	{
+		double total_pence = funt * 20 * 12 + shilling * 20 + pence;
+		return total_pence;
+	}
+	sterling operator+(sterling current)
+	{
+		return sterling(double(sterling(funt, shilling, pence)) + double(current));
+	}
+	sterling operator-(sterling current)
+	{
+		return sterling(double(sterling(funt, shilling, pence)) - double(current));
+	}
+	sterling operator*(double current)
+	{
+		return sterling(double(sterling(funt, shilling, pence)) * current);
+	}
+	sterling operator/(sterling current)
+	{
+		return sterling(double(sterling(funt, shilling, pence)) / double(current));
+	}
+	sterling operator/(double current)
+	{
+		return sterling(double(sterling(funt, shilling, pence)) / current);
+	}
+
+};

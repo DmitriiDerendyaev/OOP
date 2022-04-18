@@ -251,8 +251,40 @@ void task10()
 
 void task11()
 {
-	
+	sterling first_unit(1.0, 1, 1);
+	sterling second_unit, total_unit;
+	double amount_double;
+
+	cout << "¬ведите величину типа Double: ";
+	cin >> amount_double;
+
+	second_unit.setSterling();
+	cout << endl << endl;
+
+
+
+	cout << "Result of addition(sterling + sterling): ";
+	total_unit = first_unit + second_unit;
+	total_unit.getSterling();
+
+	cout << "Result of substraction(sterling - sterling): ";
+	total_unit = first_unit - second_unit;
+	total_unit.getSterling();
+
+	cout << "Result of multiplication(sterling * double): ";
+	total_unit = first_unit * amount_double;
+	total_unit.getSterling();
+
+	cout << "Result of division(sterling / double): ";
+	total_unit = first_unit / amount_double;
+	total_unit.getSterling();
+
+	cout << "Result of division(sterling / sterling): ";
+	total_unit = first_unit / second_unit;
+	total_unit.getSterling();
+
 }
+
 
 void task12()
 {
