@@ -221,11 +221,6 @@ public:
 		char slash;
 		cout << "Enter a fraction(X/Y): ";
 		cin >> numenator >> slash >> denominator;
-		/*if (isError(numenator, denominator) == true)
-		{
-			cout << "Error" << endl;
-			exit(1);
-		}*/
 	}
 	void display_fraction()
 	{
@@ -240,20 +235,8 @@ public:
 	bool operator!=(fraction);
 	fraction lowterms(fraction);
 	void lowterms_void();
-	//bool isError(int, int);//Error == true; notError == false;
 };
 
-//bool fraction::isError(int numenator, int denominator)
-//{
-//	if ((numenator == 0 && denominator == 0) || (numenator == 1 && denominator == 1) || (numenator == 1 && denominator == 0) || (numenator == 0 && denominator == 1))
-//	{
-//		return true;
-//	}
-//	else
-//	{
-//		return false;
-//	}
-//}
 
 bool fraction::operator==(fraction current)//создать константные дроби для выхода из цикла
 {
@@ -323,7 +306,6 @@ fraction fraction::lowterms(fraction current)
 	{
 		current.numenator = 0;
 		current.denominator = 1;
-		//return ;
 	}
 	while (tnum != 0)
 	{
@@ -420,7 +402,6 @@ public:
 		int s = exchange.get_shilling();
 		int pe = exchange.get_pence();
 		total = (fu + (s * 12 + pe) / 2.4 / 100) * 50;
-		//total = (po * 50) + ((50 / 20) * s) + ((50 / 20 / 12) * pe);
 	}
 	explicit bMoney() = default;
 	long double mstold_get()
@@ -444,11 +425,7 @@ public:
 
 		return total;
 	}
-	//operator double() const//for task_12
-	//{
-	//	//double double_dollar = total;
-	//	return (double)total;
-	//}
+
 	double get_double_dollar()
 	{
 		return total;
@@ -562,87 +539,6 @@ public:
 		return arr[n];
 	}
 };
-
-//class Polar
-//{
-//private:
-//	float rad;
-//	float angle;
-//public:
-//	Polar() : rad(0), angle(0)
-//	{ }
-//	Polar(float r, float a): rad(r), angle(a)
-//	{ }
-//	Polar(decart_coord decart);
-//	void set_polar()
-//	{
-//		cout << "Enter a polar coordinates(rad angle): ";
-//		cout << "Rad: "; cin >> rad;
-//		cout << "Angle: "; cin >> angle;
-//	}
-//	void display_polar()
-//	{
-//		cout << "Rad: " << rad << endl;
-//		cout << "Angle: " << angle << endl;
-//	}
-//	float get_rad()
-//	{
-//		return rad;
-//	}
-//	float get_angle()
-//	{
-//		return angle;
-//	}
-//
-//};
-//
-//class decart_coord
-//{
-//private:
-//	float x;
-//	float y;
-//public:
-//	decart_coord() : x(0), y(0)
-//	{ }
-//	decart_coord(float x, float y) : x(x), y(y)
-//	{ }
-//	decart_coord(Polar pol);
-//
-//	decart_coord operator+(decart_coord);
-//
-//	float get_x()
-//	{
-//		return x;
-//	}
-//	float get_y()
-//	{
-//		return y;
-//	}
-//};
-//
-//decart_coord decart_coord::operator+(decart_coord current)
-//{
-//	float temp_x = x + current.x;
-//	float temp_y = y + current.y;
-//
-//	return decart_coord(temp_x, temp_y);
-//}
-//
-//Polar::Polar(decart_coord decart)
-//{
-//	float x = decart.get_x();
-//	float y = decart.get_y();
-//	angle = tan(y / x);
-//	rad = hypot(x, y);
-//}
-//
-//decart_coord::decart_coord(Polar pol)
-//{
-//	float angle = pol.get_angle();
-//	float rad = pol.get_rad();
-//	x = rad * cos(angle);
-//	y = rad * sin(angle);
-//}
 
 class Polar;
 

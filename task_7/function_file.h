@@ -71,12 +71,7 @@ void task4()
 	gamma = alpha / beta; // 2 
 	cout << "\ngamma ="; 
 	gamma.putInt();
-	
-	//delta = 2147483647;
-	//gamma = delta + alpha; // ошибка переполнения
-	//
-	//delta = -2147483647;
-	//gamma = delta - alpha; // ошибка переполнения
+
 	cout << endl;
 }
 
