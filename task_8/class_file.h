@@ -20,6 +20,16 @@ public:
 	}
 };
 
+class sales
+{
+private:
+	enum { MONTHS = 3 };
+	float salesArr[MONTHS];
+public:
+	void getdata();
+	void putdata()const;
+};
+
 class book :private publication // порожденный класс
 {
 private:
