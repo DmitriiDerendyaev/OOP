@@ -14,11 +14,6 @@ int main()
 	first--;
 
 	first.print();
-
-	++first;
-
-	--first;
-
 	return 0;
 }
 
