@@ -9,6 +9,7 @@ protected: // Примечание: не обязательно
 // делать их скрытыми
 	enum { SZ = 80 }; // размер всех объектов String
 	char str[SZ]; // содержит С-строку
+	//char sub_string[SZ];
 public:
 	String() // конструктор 0, без аргументов
 	{
@@ -16,7 +17,7 @@ public:
 	}
 	String(char s[]) // конструктор 1, один аргумент
 	{
-		strcpy(str, s);
+		strcpy_s(str, s);
 	}// преобразование из string в String
 	void display()const // вывести String
 	{
@@ -31,10 +32,10 @@ public:
 class Pstring :public String // порожденный класс
 {
 public:
-	Pstring(char s[]); // конструктор
+	Pstring(const char s[]); // конструктор
 };
 //---------------------------------------------------------
-Pstring::Pstring(char s[]) // конструктор для Pstring
+Pstring::Pstring(const char s[]) // конструктор для Pstring
 {
 	int j;
 	if (strlen(s) > SZ - 1) // если слишком длинная строка,
@@ -44,6 +45,52 @@ Pstring::Pstring(char s[]) // конструктор для Pstring
 		str[j] == '\0'; // добавить служебный символ
 	}
 	else // если не слишком длинная,
-		String(s); // создать нормальную строку
-}
+		//String(s); // создать нормальную строку
+		strcpy_s(str, s);
+}       
 
+class Pstring2 : public Pstring {
+public:
+	Pstring2(const char s[]) : Pstring(s) {
+	}
+	Pstring2 left(int ledge)//ledge - выступ
+	{
+		Pstring2 sub_string = "";
+		int border, i;
+		for (i = 0; i < SZ; i++)
+			if (str[i] == '\0')
+				border = i;
+		int j = 0;
+		for (i = ledge; i < border; i++)
+		{
+			sub_string[j++] = str[i];
+		}
+		sub_string[i] = '\0';
+		return sub_string;
+	}
+
+	Pstring2 right(int intend)
+	{
+		Pstring2 sub_string = "";
+		int border, i;
+		for (i = 0; i < SZ; i++)
+			if (str[i] == '\0')
+				border = i;
+		int j = 0;
+		for (i = 0; i < border - intend; i++)
+		{
+			sub_string[j++] = str[i];
+		}
+		sub_string[i] = '\0';
+		return sub_string;
+	}
+	
+	Pstring2 mid(int amount, int begin) {
+		//Pstring2 substr = "";
+		int i;
+		for (i = begin; i < begin + amount; i++)
+			str[i] = '*';
+		//substr[i] = '\0';
+		return str;
+	}
+};

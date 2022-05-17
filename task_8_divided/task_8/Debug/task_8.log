@@ -1,0 +1,5 @@
+﻿  task_8.cpp
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_8_divided\task_8\pstring_mod.h(16,10): warning C4553: '==': result of expression not used; did you intend '='?
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_8_divided\task_8\pstring_mod.h(44,11): warning C4553: '==': result of expression not used; did you intend '='?
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_8_divided\task_8\pstring_mod.h(45,10): warning C4553: '==': result of expression not used; did you intend '='?
+  task_8.vcxproj -> D:\mospolytech\2_term\object_oriented_programming\OOP\task_8_divided\task_8\Debug\task_8.exe
