@@ -1,0 +1,8 @@
+﻿  task_12.cpp
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_8_divided\task_12\expand_fraction.h(70,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_8_divided\task_12\expand_fraction.h(119,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_8_divided\task_12\expand_fraction.h(132,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_8_divided\task_12\expand_fraction.h(145,12): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_8_divided\task_12\expand_fraction.h(146,36): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_8_divided\task_12\expand_fraction.h(147,50): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  task_12.vcxproj -> D:\mospolytech\2_term\object_oriented_programming\OOP\task_8_divided\task_12\Debug\task_12.exe
