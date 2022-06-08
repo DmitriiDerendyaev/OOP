@@ -1,0 +1,12 @@
+﻿  task_3.cpp
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_3\task_3.cpp(10,107): error C2440: 'initializing': cannot convert from 'const char [7]' to 'char **'
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_3\task_3.cpp(10,30): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_3\task_3.cpp(10,107): error C2440: 'initializing': cannot convert from 'const char [8]' to 'char **'
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_3\task_3.cpp(10,50): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_3\task_3.cpp(10,107): error C2440: 'initializing': cannot convert from 'const char [10]' to 'char **'
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_3\task_3.cpp(10,61): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_3\task_3.cpp(10,107): error C2440: 'initializing': cannot convert from 'const char [9]' to 'char **'
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_3\task_3.cpp(10,74): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_3\task_3.cpp(16,24): error C2664: 'void bsort(char **,int)': cannot convert argument 1 from 'char **[7]' to 'char **'
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_3\task_3.cpp(16,11): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_3\task_3.cpp(8,10): message : see declaration of 'bsort'

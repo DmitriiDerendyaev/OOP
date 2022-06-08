@@ -1,0 +1,3 @@
+﻿  task_11.cpp
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_11\task_11.cpp(87,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  task_11.vcxproj -> D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_11\Debug\task_11.exe

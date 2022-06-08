@@ -1,0 +1,15 @@
+﻿'task_11.exe' (Win32): Loaded 'D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_11\Debug\task_11.exe'. Symbols loaded.
+'task_11.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ntdll.dll'. 
+'task_11.exe' (Win32): Loaded 'C:\Windows\SysWOW64\kernel32.dll'. 
+'task_11.exe' (Win32): Loaded 'C:\Windows\SysWOW64\KernelBase.dll'. 
+'task_11.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msvcp140d.dll'. 
+'task_11.exe' (Win32): Loaded 'C:\Windows\SysWOW64\vcruntime140d.dll'. 
+'task_11.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ucrtbased.dll'. 
+The thread 0x40c8 has exited with code 0 (0x0).
+'task_11.exe' (Win32): Loaded 'C:\Windows\SysWOW64\sechost.dll'. 
+'task_11.exe' (Win32): Loaded 'C:\Windows\SysWOW64\rpcrt4.dll'. 
+'task_11.exe' (Win32): Loaded 'C:\Windows\SysWOW64\kernel.appcore.dll'. 
+'task_11.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msvcrt.dll'. 
+The thread 0x27bc has exited with code 0 (0x0).
+The thread 0x19d8 has exited with code 0 (0x0).
+The program '[12080] task_11.exe' has exited with code 0 (0x0).

@@ -1,0 +1,6 @@
+﻿  task_12.cpp
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_12\task_12.cpp(45,20): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_12\task_12.cpp(46,20): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_12\task_12.cpp(53,15): warning C4305: '=': truncation from 'double' to 'float'
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_12\task_12.cpp(54,15): warning C4305: '=': truncation from 'double' to 'float'
+  task_12.vcxproj -> D:\mospolytech\2_term\object_oriented_programming\OOP\task_9\task_12\Debug\task_12.exe
