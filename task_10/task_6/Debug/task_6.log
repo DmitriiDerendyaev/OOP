@@ -1,4 +1,5 @@
 ﻿  task_6.cpp
-D:\mospolytech\2_term\object_oriented_programming\OOP\task_10\task_6\task_6.cpp(41,11): warning C4244: 'initializing': conversion from 'double' to 'long', possible loss of data
-D:\mospolytech\2_term\object_oriented_programming\OOP\task_10\task_6\task_6.cpp(49,11): warning C4244: 'initializing': conversion from 'double' to 'long', possible loss of data
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_10\task_6\task_6.cpp(18,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_10\task_6\task_6.cpp(54,11): warning C4244: 'initializing': conversion from 'double' to 'long', possible loss of data
+D:\mospolytech\2_term\object_oriented_programming\OOP\task_10\task_6\task_6.cpp(62,11): warning C4244: 'initializing': conversion from 'double' to 'long', possible loss of data
   task_6.vcxproj -> D:\mospolytech\2_term\object_oriented_programming\OOP\task_10\task_6\Debug\task_6.exe
