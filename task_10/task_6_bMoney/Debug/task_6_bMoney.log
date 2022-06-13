@@ -1,2 +1,2 @@
 ﻿  task_6_bMoney.cpp
-D:\mospolytech\2_term\object_oriented_programming\OOP\task_10\task_6_bMoney\task_6_bMoney.cpp(142,21): error C2398: Element '1': conversion from 'long double' to 'sterling' requires a narrowing conversion
+  task_6_bMoney.vcxproj -> D:\mospolytech\2_term\object_oriented_programming\OOP\task_10\task_6_bMoney\Debug\task_6_bMoney.exe

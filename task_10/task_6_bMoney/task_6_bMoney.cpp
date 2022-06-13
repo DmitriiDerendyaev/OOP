@@ -1,42 +1,13 @@
-//#include "stdafx.h"
-#include <iostream>
-#include <string.h>   // для функций strcpy, strcat
-#include <stdlib.h>   // для функции exit
+п»ї#include <iostream>
+#include <string.h>   // РґР»СЏ С„СѓРЅРєС†РёР№ strcpy, strcat
+#include <stdlib.h>   // РґР»СЏ С„СѓРЅРєС†РёРё exit
 #include <string>
 #include <cmath>
 #include <iomanip>
-#include <math.h>
-#define _CRT_SECURE_NO_WARNINGS
+//#define _CRT_SECURE_NO_WARNINGS
 
 using namespace std;
 
-
-class bMoney;
-
-class sterling
-{
-private:
-	long funt;
-	int shilling;
-	int pence;
-	float dec_funtic;
-public:
-	sterling();
-	sterling(double dec_funt);
-	sterling(long funt, int shilling, int pence);
-	sterling(bMoney exchange);
-	void setSterling();
-	void getSterling();
-	long get_funt();
-	int get_shilling();
-	int get_pence();
-	operator double();
-	sterling operator+(sterling);
-	sterling operator-(sterling);
-	sterling operator*(double);
-	sterling operator/(sterling);
-	sterling operator/(double);
-};
 
 class bMoney
 {
@@ -49,13 +20,8 @@ private:
 	string clearDollar;
 	long double first_value;
 public:
-	bMoney(sterling exchange)//кааааак?
-	{
-		long fu = exchange.get_funt();
-		int s = exchange.get_shilling();
-		int pe = exchange.get_pence();
-		total = (fu + (s * 12 + pe) / 2.4 / 100) * 50;
-	}
+	bMoney(long double total_d) : total(total_d)
+	{ }
 	explicit bMoney() = default;
 	long double mstold_get()
 	{
@@ -83,20 +49,16 @@ public:
 	{
 		return total;
 	}
+
 	bMoney operator+(bMoney);
 	bMoney operator-(bMoney);
-	bMoney operator*(long double);//цена за единицу времени, затраченного на изделие
-	long double operator/(bMoney);//Общая цена, деленная на цену за изделие
-	bMoney operator/(long double);//Общая цена, деленная на кличество изделий
-
-	friend bMoney operator*(long double, const bMoney&);
-	friend bMoney operator/(long double, const bMoney&);
-
-	friend std::ostream& operator<<(std::ostream& out, const bMoney& mon);
+	bMoney operator*(long double);//С†РµРЅР° Р·Р° РµРґРёРЅРёС†Сѓ РІСЂРµРјРµРЅРё, Р·Р°С‚СЂР°С‡РµРЅРЅРѕРіРѕ РЅР° РёР·РґРµР»РёРµ
+	long double operator/(bMoney);//РћР±С‰Р°СЏ С†РµРЅР°, РґРµР»РµРЅРЅР°СЏ РЅР° С†РµРЅСѓ Р·Р° РёР·РґРµР»РёРµ
+	bMoney operator/(long double);//РћР±С‰Р°СЏ С†РµРЅР°, РґРµР»РµРЅРЅР°СЏ РЅР° РєР»РёС‡РµСЃС‚РІРѕ РёР·РґРµР»РёР№
 
 	void convertDollar_display()
 	{
-		strDollar += to_string(round(total));
+		strDollar += to_string(total);
 
 		signDollar += '$';
 		signDollar += strDollar;
@@ -127,20 +89,21 @@ public:
 		cout << "Dollar 30 Euro 40 k MAYU!" << endl;
 	}
 
+
+	friend bMoney operator * (long double value, bMoney b2) {
+		bMoney total_dollar;
+		total_dollar.total = value * b2.total;
+		return total_dollar;
+	}
+	
+	friend bMoney operator / (long double value, bMoney b2) {
+		bMoney total_dollar;
+		total_dollar.total = value / b2.total;
+		return total_dollar;
+	}
+
+
 };
-
-
-std::ostream& operator<<(std::ostream& out, const bMoney& mon) {
-	out << mon.total;
-}
-
-bMoney operator*(long double val, const bMoney& other) {
-	return other.total * val;//why
-}
-
-bMoney operator/(long double val, const bMoney& other) {
-	return bMoney{ val / other.total };
-}
 
 bMoney bMoney::operator*(long double current)
 {
@@ -182,14 +145,26 @@ bMoney bMoney::operator-(bMoney current)
 	return total_dollar;
 }
 
+
+void task11()
+{
+	bMoney mon1/*{100}*/;
+	bMoney mon_result;
+
+	mon1.mstold_get();
+
+	mon_result = 30 * mon1;
+	
+	mon_result.display_dollar();
+
+	mon_result = 1000 / mon1;
+
+	mon_result.display_dollar();
+}
+
 int main()
 {
-
-	setlocale(0, "Russian");
-	sterling ster{ 100.1 };
-	cout << 30.3 * ster << "\n";
-	cout << 200.2 / ster;
+	task11();
 
 	return 0;
 }
-
